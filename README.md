@@ -14,13 +14,18 @@ npm install webpack webpack-cli --save-dev
 3.1. Создаем в корне проэкта фаил webpack.config.js. Для всех настроек.
 
 4.Настраиваем Entry Points.
+
 5.Настраиваем output - указываем куда и как будет происходить сборка
+
 6.Прописываем хеширование файлов output: 
         filename: '[name].[contenthash].js'
+
 7.mode определяет в каком формате происходит сборка.
 
+8.загрузка HtmlWebpackPlugin
+npm i -D html-webpack-plugin
 
-sass-loader: Loader to compile Sass/SCSS files into CSS.
+9.sass-loader: Loader to compile Sass/SCSS files into CSS.
 css-loader: Loader to handle CSS imports.
 style-loader: Injects CSS into the DOM.
 npm install sass sass-loader css-loader style-loader html-webpack-plugin @babel/preset-env babel-loader --save-dev
