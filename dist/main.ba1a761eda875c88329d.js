@@ -1,0 +1,1 @@
+(()=>{"use strict";function e(){alert("Hello from Webpack and JavaScript!")}document.addEventListener("DOMContentLoaded",(()=>{const t=document.createElement("button");t.textContent="Click Me!",t.onclick=e,document.body.appendChild(t)})),console.log("Hello !")})();
