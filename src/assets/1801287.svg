@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<script defer src="main.a0a489646e1bfddd3fd8.js"></script></head>
-<body>
-  <h1>Hello Webpack!</h1>
-  <div>
-    <img src="../src/assets/Cat03.jpg" alt="img jpg">
-  </div>
-  <div>
-    <?xml version="1.0" standalone="no"?>
+<?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
  "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +110,3 @@ m34 -295 c73 -35 124 -162 198 -494 55 -251 74 -374 87 -583 17 -267 3 -313
 -108 49 -134 104 -127 151 20 132 275 -34 458 -97 108 -194 150 -222 98z"/>
 </g>
 </svg>
-  </div>
-  <div>
-    <img src="../src/assets/PNG_transparency_demonstration_1.png" alt="png">
-  </div>
-</body>
-</html>

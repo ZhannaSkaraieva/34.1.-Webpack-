@@ -33,6 +33,10 @@ module.exports = (env) => { // с помошью переменной окруж
               {
                 test: /\.scss$/, // Применяет правило к файлам с расширением .scss (Sass/SCSS файлы)
                 use: ['style-loader', 'css-loader', 'sass-loader'], // Использует цепочку загрузчиков для обработки SCSS в CSS и внедрения в HTML
+                },
+              {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
               },
             ],
         },
