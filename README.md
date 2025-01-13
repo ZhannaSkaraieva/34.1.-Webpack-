@@ -15,6 +15,10 @@ npm install webpack webpack-cli --save-dev
 
 4.Настраиваем Entry Points.
 5.Настраиваем output - указываем куда и как будет происходить сборка
+6.Прописываем хеширование файлов output: 
+        filename: '[name].[contenthash].js'
+7.mode определяет в каком формате происходит сборка.
+
 
 sass-loader: Loader to compile Sass/SCSS files into CSS.
 css-loader: Loader to handle CSS imports.
