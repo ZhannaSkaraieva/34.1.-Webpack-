@@ -18,41 +18,42 @@ module.exports = (env) => { // с помошью переменной окруж
             // [name] будет 'main' по умолчанию из entry,
             // [contenthash] берется хэш от содержимого файла и добавляется в название. // Имя итогового скомпилированного файла JavaScript
             path: path.resolve(__dirname, 'dist'), // Абсолютный путь к директории, в которую будут выводиться скомпилированные файлы
-          clean: true, // Очищает папку output перед каждой сборкой, удаляя старые файлы
-            assetModuleFilename: 'assets/[hash][ext]',
+            clean: true, // Очищает папку output перед каждой сборкой, удаляя старые файлы
+            assetModuleFilename: 'assets/[name].[hash][ext]',
         },
         module: {
             rules: [
-              {
-                test: /\.js$/, // Применяет правило к файлам с расширением .js
-                exclude: /node_modules/, // Исключает папку node_modules, чтобы не обрабатывать её содержимое
-                use: {
-                    loader: 'babel-loader', // Использует Babel для транспиляции JavaScript кода
-                    options: {
-                    presets: ['@babel/preset-env'], // Применяет пресет для поддержки современного синтаксиса JavaScript в старых браузерах
-                  },
+            {
+              test: /\.js$/, // Применяет правило к файлам с расширением .js
+              exclude: /node_modules/, // Исключает папку node_modules, чтобы не обрабатывать её содержимое
+              use: {
+                loader: 'babel-loader', // Использует Babel для транспиляции JavaScript кода
+                options: {
+                  presets: ['@babel/preset-env'], // Применяет пресет для поддержки современного синтаксиса JavaScript в старых браузерах
                 },
               },
-              {
-                test: /\.scss$/, // Применяет правило к файлам с расширением .scss (Sass/SCSS файлы)
-                use: ['style-loader', 'css-loader', 'sass-loader'], // Использует цепочку загрузчиков для обработки SCSS в CSS и внедрения в HTML
-                },
-              {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+            },
+            {  
+              test: /\.scss$/, // Применяет правило к файлам с расширением .scss (Sass/SCSS файлы)
+              use: ['style-loader', 'css-loader', 'sass-loader'], // Использует цепочку загрузчиков для обработки SCSS в CSS и внедрения в HTML
             },
             {
-              test: /\.woff2$/i,
+              test: /\.(png|svg|jpg|jpeg|gif)$/i,// загрузка картинок
               type: 'asset/resource',
-              generator: {
-                filename:'/fonts/[name].ext'
-              }
+            },
+            {
+              test: /\.woff2$/i,//загрузка шрифтов
+              type: 'asset/resource',
+               generator: {
+                publicPath: '',
+                filename: 'fonts/[name].[hash][ext]'
+                    }
             },
             {
               test: /\.(png|svg|jpg|jpeg|gif)$/i,
               type: 'asset/resource',
-            },       
-            ],
+            },
+          ],
         },
         plugins: [
             new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'public','index.html') })
