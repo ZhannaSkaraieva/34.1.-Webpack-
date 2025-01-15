@@ -45,7 +45,6 @@ module.exports = (env) => { // с помошью переменной окруж
               test: /\.woff2$/i,//загрузка шрифтов
               type: 'asset/resource',
                generator: {
-                publicPath: '',
                 filename: 'fonts/[name].[hash][ext]'
                     }
             },
