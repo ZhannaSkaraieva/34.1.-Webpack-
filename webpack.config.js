@@ -1,5 +1,7 @@
 const path = require('path'); // Подключение модуля path для работы с путями в файловой системе
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { assert } = require('console');
+const { Generator } = require('webpack');
 
 
 // __dirname — это глобальная переменная в Node.js, 
@@ -16,7 +18,8 @@ module.exports = (env) => { // с помошью переменной окруж
             // [name] будет 'main' по умолчанию из entry,
             // [contenthash] берется хэш от содержимого файла и добавляется в название. // Имя итогового скомпилированного файла JavaScript
             path: path.resolve(__dirname, 'dist'), // Абсолютный путь к директории, в которую будут выводиться скомпилированные файлы
-            clean: true, // Очищает папку output перед каждой сборкой, удаляя старые файлы
+          clean: true, // Очищает папку output перед каждой сборкой, удаляя старые файлы
+            assetModuleFilename: 'assets/[hash][ext]',
         },
         module: {
             rules: [
@@ -37,7 +40,18 @@ module.exports = (env) => { // с помошью переменной окруж
               {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
-              },
+            },
+            {
+              test: /\.woff2$/i,
+              type: 'asset/resource',
+              generator: {
+                filename:'/fonts/[name].ext'
+              }
+            },
+            {
+              test: /\.(png|svg|jpg|jpeg|gif)$/i,
+              type: 'asset/resource',
+            },       
             ],
         },
         plugins: [
